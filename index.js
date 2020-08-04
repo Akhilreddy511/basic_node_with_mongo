@@ -3,6 +3,7 @@ var express = require('express');
 var mongoose= require('mongoose');
 var Register = require('./model/userScheema')
 var app = express()
+const port = process.env.PORT || 4200
 // support parsing of application/json type post data
 app.use(bodyParser.json());
 
@@ -23,9 +24,9 @@ app.post('/',(req,res)=>{
 })
 
 app.get('/',(req,res)=>{
-    res.send('hello heroku');
+    res.json({test:'hello heroku'});
 })
 
-app.listen('4200',()=>{
-    console.log('am listening up on 4200');
+app.listen(port,()=>{
+    console.log(`am listening up on ${port}`);
 })
