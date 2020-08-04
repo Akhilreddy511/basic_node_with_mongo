@@ -9,9 +9,9 @@ app.use(bodyParser.json());
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://localhost:27017/basicApp', {useNewUrlParser: true}).catch((err)=>{
-    console.log('not connected to mongoose')
-});
+// mongoose.connect('mongodb://localhost:27017/basicApp', {useNewUrlParser: true}).catch((err)=>{
+//     console.log('not connected to mongoose')
+// });
 
 app.post('/',(req,res)=>{
     console.log(req.body);
@@ -20,6 +20,10 @@ app.post('/',(req,res)=>{
         res.json({status:true,data:result});
     })
   
+})
+
+app.get('/',(req,res)=>{
+    res.send('hello heroku');
 })
 
 app.listen('4200',()=>{
